@@ -15,7 +15,7 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
         value: objArray[1].reason,
       },
     ]).catch(() => {
-      Error();
+      // Nothing
     });
 
   return finalUser;
