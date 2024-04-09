@@ -3,5 +3,7 @@ export default function handleResponseFromAPI(promise) {
     console.log('Got a response from the API');
     return ('success');
   }, 200);
-  promise.catch(() => ({}));
+  promise.catch(() => {
+    // Nothing
+  });
 }
