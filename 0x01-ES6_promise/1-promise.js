@@ -6,14 +6,14 @@ export default function getResponseFromAPI(success) {
         body: 'Success',
       });
     } else {
-      reject({
+      reject(Error({
         Error: 'The fake API is not working currently',
-      });
+      }));
     }
   });
 
   promise.catch(() => {
-    // Do nothing here
+    // Do nothing
   });
 
   return promise;
