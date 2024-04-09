@@ -4,7 +4,7 @@ import uploadPhoto from './5-photo-reject';
 export default function handleProfileSignUp(firstName, lastName, fileName) {
   const allPromises = [signUpUser(firstName, lastName), uploadPhoto(fileName)];
 
-  const handleSignUpPromise = Promise.all(allPromises)
+  const finalUser = Promise.all(allPromises)
     .then((resolvedValues) => [
       {
         status: resolvedValues[0].status,
@@ -14,8 +14,14 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
         status: resolvedValues[1].status,
         value: resolvedValues[1],
       },
-    ]).catch(() => {
-      // Nothing
+    ]).catch((rejectionReason) => {
+      [
+        {
+          status: null,
+          value: rejectionReason,
+        },
+      ]
     });
-  return handleSignUpPromise;
+
+  return finalUser;
 }
