@@ -14,7 +14,7 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
       });
     }
     return objArray;
-  }).catch(() => {});
+  }).catch(() => { Error(); });
 
   return finalUser;
 }
