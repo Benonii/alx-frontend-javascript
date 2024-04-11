@@ -8,8 +8,8 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
     const objArray = [];
     for (const result of results) {
       objArray.push({
-        "status": result.status,
-        "value": result.status === 'fulfilled'
+        status: result.status,
+        value: result.status === 'fulfilled'
           ? result.value : result.reason.message,
       });
     }
