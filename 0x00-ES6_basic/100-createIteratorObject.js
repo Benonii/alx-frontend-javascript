@@ -1,18 +1,19 @@
 export default function createIteratorObject(report) {
-  const iterable = {
+  const iterator = {
     [Symbol.iterator]() {
-      let currentDepartmentKey = Object.keys(report)[0];
+      const departments = report.allEmployees;
+      let index = 0;
+      let currentDepartment = Object.keys(departments)[index];
       let employeeIndex = 0;
 
       return {
         next() {
-          const totalEmployeesInDepartment = report[currentDepartmentKey].length;
-          if (currentDepartmentKey && employeeIndex < totalEmployeesInDepartment) {
-            const value = report[currentDepartmentKey][employeeIndex];
+          if (currentDepartment && employeeIndex < departments[currentDepartment].length) {
+            const value = departments[currentDepartment][employeeIndex];
             employeeIndex += 1;
 
-            if (employeeIndex === totalEmployeesInDepartment) {
-              currentDepartmentKey = Object.keys(report).find((key) => key > currentDepartmentKey);
+            if (employeeIndex === departments[currentDepartment].length) {
+              currentDepartment = Object.keys(departments)[index += 1];
               employeeIndex = 0;
             }
 
@@ -24,5 +25,5 @@ export default function createIteratorObject(report) {
     },
   };
 
-  return iterable;
+  return iterator;
 }
