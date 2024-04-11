@@ -10,7 +10,7 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
       objArray.push({
         status: result.status,
         value: result.status === 'fullfiled'
-          ? result.value : result.reason,
+          ? result.value : result.reason.message,
       });
     }
     return objArray;
