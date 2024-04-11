@@ -10,7 +10,7 @@ export default function handleProfileSignUp(firstName, lastName, fileName) {
       objArray.push({
         status: result.status,
         value: result.status === 'fulfilled'
-          ? result.value : result.reason.message,
+          ? result.value : `Error: ${result.reason.message}`,
       });
     }
     return objArray;
