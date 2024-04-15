@@ -4,9 +4,9 @@ export default function updateUniqueItems(groceries) {
       if (value === 1) {
         groceries.set(key, 100);
       }
-    } catch(e) {
+    } catch (e) {
       throw new Error('Cannot process');
-    };
+    }
   }
   return groceries;
 }
