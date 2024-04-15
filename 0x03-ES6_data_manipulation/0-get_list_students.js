@@ -17,5 +17,5 @@ export default function getListStudents() {
     },
   ];
 
-  return students;
+  return students.sort();
 }
